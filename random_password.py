@@ -6,9 +6,10 @@ print("Рандомный пароль V1.0")
 while True:
     try:
         length = int(input("Длина пароля: "))
-        if length > 128:
-            print("Максимальная длина пароля 128 символов")
-            length = int(input("Длина пароля: "))
+        if not 6 <= length <= 128:
+            raise ValueError()
+    except ValueError:
+        print("Максимальная длина пароля 128 символов\nМинимальная длина пароля 6 символов")
     except:
         print("Ошибка! Попробуйте снова")
     else:
